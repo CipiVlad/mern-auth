@@ -22,10 +22,10 @@ const userSchema = mongoose.Schema({
     }
 );
 
-//  'pre' is a mongoose hook --> meaning before save the userSchema ... do this
+//  'pre' is a mongoose hook --> meaning:'before saving the userSchema ... do this'
 userSchema.pre('save', async function (next) {
 
-    // if the password isn't changed in anyway, move on --> next();
+    // if the password isn't changed in any way, move on --> next();
     if (!this.isModified('password')) {
         next();
     }
